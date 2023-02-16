@@ -31,4 +31,13 @@ public class Whisky {
     private Category category;
     private LocalDateTime addedOn;
     private String photo;
+
+    public Whisky(String name, String strength, Integer vintage, int aging) {
+        this.name = name;
+        this.strength = strength;
+        this.vintage = vintage;
+        this.aging = aging;
+    }
 }
+
+
