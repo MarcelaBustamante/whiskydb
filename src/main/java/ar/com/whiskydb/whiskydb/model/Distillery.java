@@ -23,4 +23,11 @@ public class Distillery {
     @ElementCollection
     private List<String> photos;
     private LocalDate founded;
+
+    public Distillery(Location location, String name, List<String> photos, LocalDate founded) {
+        this.location = location;
+        this.name = name;
+        this.photos = photos;
+        this.founded = founded;
+    }
 }
