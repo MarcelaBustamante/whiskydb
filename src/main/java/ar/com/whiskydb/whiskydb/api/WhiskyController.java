@@ -10,15 +10,17 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/whiskies")
 public class WhiskyController {
-    private WhiskyService whiskyService;
+    private final WhiskyService whiskyService;
 
     public WhiskyController(WhiskyService whiskyService) {
         this.whiskyService = whiskyService;
     }
 
     @GetMapping
-    public Page<Whisky> getAllWhiskies(Pageable pageable){
-        return whiskyService.getAll(pageable);
+    public Page<Whisky> getAllWhiskies(Pageable pageable,
+                                       @RequestParam(required = false) Long distilleryId,
+                                       @RequestParam(required = false) String name){
+        return whiskyService.getAll(pageable, distilleryId, name);
     }
 
     @GetMapping("/{id}")

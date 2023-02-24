@@ -1,0 +1,1 @@
+INSERT INTO DISTILLERY(ID, NAME, FOUNDED, COUNTRY, PROVINCE, CITY) VALUES(NEXTVAL('seq_distillery'), 'Talisker', CURRENT_DATE, 'Scotland', 'Islay', 'Islay');

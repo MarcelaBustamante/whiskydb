@@ -2,18 +2,21 @@ package ar.com.whiskydb.whiskydb.api.DTO;
 
 import ar.com.whiskydb.whiskydb.model.Category;
 import ar.com.whiskydb.whiskydb.model.TastingNote;
-import ar.com.whiskydb.whiskydb.model.Whisky;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class CreateWhisky {
+    private long distilleryId;
     private String name;
-    private String strength;
+    private Float strength;
     private Integer vintage;
     private int aging;
     private List<TastingNote> tastingNotes;

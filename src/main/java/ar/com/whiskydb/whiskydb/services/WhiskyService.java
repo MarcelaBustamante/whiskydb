@@ -17,8 +17,9 @@ public class WhiskyService {
         this.whiskyRepository = whiskyRepository;
     }
 
-    public Page<Whisky> getAll(Pageable pageable) {
-        return whiskyRepository.findAll(pageable);
+    public Page<Whisky> getAll(Pageable pageable, Long distilleryId, String name) {
+        String nameFilter = null != name ? "%" + name + "%" : null;
+        return whiskyRepository.find(distilleryId, nameFilter, pageable);
     }
 
     public Whisky getById(long id) {
@@ -27,7 +28,8 @@ public class WhiskyService {
 
     @Transactional
     public Whisky create(CreateWhisky whisky) {
-        Whisky whisky1 = new Whisky(whisky.getName(), whisky.getStrength(), whisky.getVintage(), whisky.getAging());
+        Whisky whisky1 = new Whisky(whisky.getDistilleryId(), whisky.getName(), whisky.getStrength(),
+                whisky.getVintage(), whisky.getAging(), whisky.getCategory(), whisky.getPhoto());
         return whiskyRepository.save(whisky1);
     }
 
