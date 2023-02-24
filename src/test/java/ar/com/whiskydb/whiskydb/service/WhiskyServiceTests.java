@@ -34,4 +34,22 @@ public class WhiskyServiceTests {
                 Collections.emptyList(), Category.SINGLE_MALT, "");
         Assertions.assertThrows(RuntimeException.class, () -> whiskyService.create(dto));
     }
+
+    @Test
+    void update_Ok(){
+         CreateWhisky dto = new CreateWhisky(1L, "Talisker 10", 50.0f, 2010, 10,
+                 Collections.emptyList(), Category.SINGLE_MALT, "");
+        Whisky whisky = whiskyService.create(dto);
+        Long id =  whisky.getId();
+        dto.setName("Lagavulin");
+        dto.setAging(9);
+        dto.setVintage(2010);
+        dto.setPhoto("https://images.unsplash.com/photo-1602166242292-93a00e63e8e8");
+        whisky = whiskyService.update(dto, whisky.getId());
+        Assertions.assertEquals(id,whisky.getId());
+        Assertions.assertEquals("Lagavulin", whisky.getName());
+        Assertions.assertEquals(9, whisky.getAging());
+        Assertions.assertEquals(2010,whisky.getVintage());
+        Assertions.assertNotEquals("",whisky.getPhoto());
+    }
 }
