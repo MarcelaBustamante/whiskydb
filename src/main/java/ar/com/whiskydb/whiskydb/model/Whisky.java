@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -46,6 +47,7 @@ public class Whisky {
         this.category = category;
         this.photo = photo;
         this.addedOn = LocalDateTime.now();
+        this.tastingNotes = new ArrayList<>();
     }
 }
 

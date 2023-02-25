@@ -1,6 +1,7 @@
 package ar.com.whiskydb.whiskydb.services;
 
 import ar.com.whiskydb.whiskydb.api.DTO.CreateWhisky;
+import ar.com.whiskydb.whiskydb.model.Distillery;
 import ar.com.whiskydb.whiskydb.model.Whisky;
 import ar.com.whiskydb.whiskydb.model.WhiskyRepository;
 import org.springframework.data.domain.Page;
@@ -12,9 +13,11 @@ import javax.transaction.Transactional;
 @Service
 public class WhiskyService {
     private final WhiskyRepository whiskyRepository;
+    private final DistilleryService distilleryService;
 
-    public WhiskyService(WhiskyRepository whiskyRepository) {
+    public WhiskyService(WhiskyRepository whiskyRepository, DistilleryService distilleryService) {
         this.whiskyRepository = whiskyRepository;
+        this.distilleryService = distilleryService;
     }
 
     public Page<Whisky> getAll(Pageable pageable, Long distilleryId, String name) {
@@ -27,10 +30,12 @@ public class WhiskyService {
     }
 
     @Transactional
-    public Whisky create(CreateWhisky whisky) {
-        Whisky whisky1 = new Whisky(whisky.getDistilleryId(), whisky.getName(), whisky.getStrength(),
-                whisky.getVintage(), whisky.getAging(), whisky.getCategory(), whisky.getPhoto());
-        return whiskyRepository.save(whisky1);
+    public Whisky create(CreateWhisky newWhisky) {
+        distilleryService.getById(newWhisky.getDistilleryId());
+        Whisky whisky = new Whisky(newWhisky.getDistilleryId(), newWhisky.getName(), newWhisky.getStrength(),
+                newWhisky.getVintage(), newWhisky.getAging(), newWhisky.getCategory(), newWhisky.getPhoto());
+        whisky.setTastingNotes(newWhisky.getTastingNotes());
+        return whiskyRepository.save(whisky);
     }
 
     @Transactional
@@ -47,6 +52,15 @@ public class WhiskyService {
         }
         if (0 != whisky.getAging()) {
             whisky1.setAging(whisky.getAging());
+        }
+        if(null != whisky.getCategory()) {
+            whisky1.setCategory(whisky.getCategory());
+        }
+        if(null != whisky.getPhoto()) {
+            whisky1.setPhoto(whisky.getPhoto());
+        }
+        if(null != whisky.getTastingNotes()) {
+            whisky1.setTastingNotes(whisky.getTastingNotes());
         }
         return whiskyRepository.save(whisky1);
     }
