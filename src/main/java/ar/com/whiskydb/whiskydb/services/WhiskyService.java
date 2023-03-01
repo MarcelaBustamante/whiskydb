@@ -1,7 +1,6 @@
 package ar.com.whiskydb.whiskydb.services;
 
 import ar.com.whiskydb.whiskydb.api.DTO.CreateWhisky;
-import ar.com.whiskydb.whiskydb.model.Distillery;
 import ar.com.whiskydb.whiskydb.model.Whisky;
 import ar.com.whiskydb.whiskydb.model.WhiskyRepository;
 import org.springframework.data.domain.Page;

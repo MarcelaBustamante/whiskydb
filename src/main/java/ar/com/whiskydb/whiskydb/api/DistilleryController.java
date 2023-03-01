@@ -3,8 +3,11 @@ package ar.com.whiskydb.whiskydb.api;
 import ar.com.whiskydb.whiskydb.api.DTO.CreateDistillery;
 import ar.com.whiskydb.whiskydb.model.Distillery;
 import ar.com.whiskydb.whiskydb.services.DistilleryService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -18,6 +21,7 @@ public class DistilleryController {
         this.distilleryService = distilleryService;
     }
 
+    @Operation(summary = "Get all distilleries", description = "Get all distilleries with pagination")
     @GetMapping
     public Page<Distillery> getAllDistilleries(Pageable pageable) {
         return distilleryService.getAll(pageable);

@@ -1,16 +1,19 @@
 package ar.com.whiskydb.whiskydb.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@Schema(description = "Distillery model")
 @Entity
 public class Distillery {
     @Id
@@ -19,6 +22,8 @@ public class Distillery {
     private Long id;
     @Embedded
     private Location location;
+    @NotNull
+    @Schema(description = "The name of the distillery")
     private String name;
     @ElementCollection
     private List<String> photos;
