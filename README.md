@@ -3,7 +3,7 @@
 Es una bebida espirituosa obtenida por la destilación de la malta fermentada de cereales con cebada, trigo, centeno y maíz,
 y posterior añejamiento en barriles de madera cuyos primeros registros data de 1405 en Irlanda.
 
-![](documents/https://static.wixstatic.com/media/607a30_d6da6b014b674d5d87886234e7cb1e68~mv2.jpg/v1/fill/w_250,h_375,al_c,q_90,enc_auto/607a30_d6da6b014b674d5d87886234e7cb1e68~mv2.jpg)
+![](https://static.wixstatic.com/media/607a30_d6da6b014b674d5d87886234e7cb1e68~mv2.jpg/v1/fill/w_250,h_375,al_c,q_90,enc_auto/607a30_d6da6b014b674d5d87886234e7cb1e68~mv2.jpg)
 
 ## Descripción
 El objetivo de este proyecto es recolectar y proveer información sobre distilerias y sus respectivos whiskies en Argentin ya que actualmente no existe una base que registre esta información.
