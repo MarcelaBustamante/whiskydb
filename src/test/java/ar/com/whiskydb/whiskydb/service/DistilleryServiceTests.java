@@ -5,13 +5,17 @@ import ar.com.whiskydb.whiskydb.model.Distillery;
 import ar.com.whiskydb.whiskydb.model.DistilleryRepository;
 import ar.com.whiskydb.whiskydb.model.Location;
 import ar.com.whiskydb.whiskydb.services.DistilleryService;
-import org.hibernate.boot.spi.AdditionalJaxbMappingProducer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
+import javax.xml.xpath.XPath;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +56,23 @@ public class DistilleryServiceTests {
 
     @Test
     void getById_Ok(){
-        // TODO: 2/3/2023  
+        when(distilleryRepository.findById(anyLong())).thenReturn(Optional.of(new Distillery()));
+        Distillery distillery = distilleryService.getById(1L);
+        Assertions.assertNotNull(distillery);
+    }
+
+    @Test
+    void getById_DistilleryDoesNotExists() {
+        when(distilleryRepository.findById(anyLong())).thenThrow( new RuntimeException());
+        Assertions.assertThrows(RuntimeException.class, () -> distilleryService.getById(2L));
+    }
+
+    @Test
+    void getAll() {
+        Distillery distilleryBase = new Distillery(new Location("Fake","", ""), "Malibu",new ArrayList<>(), LocalDate.now());
+        Pageable pageable = PageRequest.of(0,1);
+        Page<Distillery> distilleries = new PageImpl<>(List.of(distilleryBase),pageable,0);
+        when(distilleryRepository.findAll(pageable)).thenReturn(distilleries);
+        Assertions.assertEquals(1, distilleryService.getAll(pageable).getSize());
     }
 }
