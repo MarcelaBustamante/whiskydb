@@ -1,12 +1,14 @@
 # whiskydb
-
-Es una bebida espirituosa obtenida por la destilación de la malta fermentada de cereales con cebada, trigo, centeno y maíz,
-y posterior añejamiento en barriles de madera cuyos primeros registros data de 1405 en Irlanda.
-
 ![](https://static.wixstatic.com/media/607a30_d6da6b014b674d5d87886234e7cb1e68~mv2.jpg/v1/fill/w_250,h_375,al_c,q_90,enc_auto/607a30_d6da6b014b674d5d87886234e7cb1e68~mv2.jpg)
 
 ## Descripción
-El objetivo de este proyecto es recolectar y proveer información sobre distilerias y sus respectivos whiskies en Argentin ya que actualmente no existe una base que registre esta información.
+Desarrollo de back-end usando arquitectura Java usando Spring-boot version 2.7.8, framework opend source cuyo objetivo es facilitar el desarrollo.
+la solución pretende recolectar y proveer información sobre distilerias y sus respectivos whiskies en Argentin ya que actualmente no existe una base que registre esta información.
+
+### Sobre el Whisky
+ Es una bebida espirituosa obtenida por la destilación de la malta fermentada de cereales con cebada, trigo, centeno y maíz,
+y posterior añejamiento en barriles de madera cuyos primeros registros data de 1405 en Irlanda.
+
 ## Comenzando 🚀
 
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
