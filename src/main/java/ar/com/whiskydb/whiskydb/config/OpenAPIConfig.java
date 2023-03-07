@@ -13,7 +13,7 @@ public class OpenAPIConfig {
     public OpenAPI openAPI() {
 
         Info info = new Info()
-                .description("WhiskyDB API")
+                .description("Here's some information about Argentinean whisky, as well as a few other interesting facts you might want to know.")
                 .title("WhiskyDB")
                 .version("1.0.0")
                 .contact(new Contact().url("https://whiskydb.com.ar"));

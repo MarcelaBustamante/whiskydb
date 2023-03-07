@@ -4,11 +4,12 @@ import ar.com.whiskydb.whiskydb.api.DTO.CreateDistillery;
 import ar.com.whiskydb.whiskydb.model.Distillery;
 import ar.com.whiskydb.whiskydb.services.DistilleryService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-
+@Tag(name ="Destilleries", description = "Here's everything about the distilleries in Argentina that produce whisky")
 @RestController
 @RequestMapping("/distilleries")
 public class DistilleryController {

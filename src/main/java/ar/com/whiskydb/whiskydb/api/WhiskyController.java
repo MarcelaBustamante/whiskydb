@@ -3,10 +3,12 @@ package ar.com.whiskydb.whiskydb.api;
 import ar.com.whiskydb.whiskydb.api.DTO.CreateWhisky;
 import ar.com.whiskydb.whiskydb.model.Whisky;
 import ar.com.whiskydb.whiskydb.services.WhiskyService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "Whiskies", description = "Information about Argentinan whisky and something else")
 @RestController
 @RequestMapping("/whiskies")
 public class WhiskyController {
