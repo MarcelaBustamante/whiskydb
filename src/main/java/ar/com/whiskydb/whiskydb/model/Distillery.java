@@ -26,7 +26,9 @@ public class Distillery {
     @Schema(description = "The name of the distillery")
     private String name;
     @ElementCollection
+    @Schema(example = "http://photo.com/linkNumber", description = "Whisky gallery")
     private List<String> photos;
+    @Schema(example = "2023-03-01")
     private LocalDate founded;
 
     public Distillery(Location location, String name, List<String> photos, LocalDate founded) {

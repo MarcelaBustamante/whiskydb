@@ -2,6 +2,7 @@ package ar.com.whiskydb.whiskydb.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,9 +24,16 @@ public class Whisky {
     @ManyToOne
     @JoinColumn(name = "distillery_id")
     private Distillery distillery;
+    @Schema(description = "Whisky name")
     private String name;
+
+    @Schema(description = "Alcohol by volume", example = "50.0f")
     private Float strength;
+
+    @Schema(description = "the year the spirit was distilled", example = "2010")
     private Integer vintage;
+
+    @Schema(description = "when distilled spirits are placed in barrels to age for a specific period of time", example = "10")
     private int aging;
     @ManyToMany
     @JoinTable(name = "whisky_tasting_note",
@@ -33,7 +41,10 @@ public class Whisky {
             inverseJoinColumns = @JoinColumn(name = "tasting_note_id"))
     private List<TastingNote> tastingNotes;
     @Enumerated(EnumType.STRING)
+    @Schema(description = "SINGLE_MALT, BOURBON,BLENDED,SINGLE_GRAIN")
     private Category category;
+
+    @Schema(description = "date", example = "2023-03-01")
     private LocalDateTime addedOn;
     private String photo;
 
